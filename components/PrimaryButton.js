@@ -1,23 +1,58 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
+import Colors from '../constants/color';
 
-const PrimaryButton = ({ children }) => {
-    function pressHandler() {
-        console.log("pressed!");
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const PrimaryButton = ({ children, onWhenPress}) => {                      // here is onWhenPress is a prop
     return (
         <View style={styles.buttonOuterContainer}>
-            <Pressable onPress={pressHandler}
+            <Pressable onPress={onWhenPress}
                 style={({pressed}) => pressed ? [styles.buttonInnercontainer , pressed] : styles.buttonInnercontainer  } // this function we are adding for ios riiple effect
-                android_ripple={{ color: '#640233' }}>
+                android_ripple={{ color: Colors.primary600 }}>
                 <Text style={styles.buttonText}>{children}</Text>
             </Pressable>
         </View>
-    )
-}
+    );
+};
 
-export default PrimaryButton
+export default PrimaryButton;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const styles = StyleSheet.create({
     buttonOuterContainer: {
@@ -26,7 +61,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     buttonInnercontainer: {
-        backgroundColor: '#72063c',
+        backgroundColor: Colors.primary500,
         borderRadius: 28,
         paddingVertical: 8,
         paddingHorizontal: 16,
